@@ -1,6 +1,6 @@
 {
   "name": "react-native-lottie-tabbar",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A lottie animation tab bar written in react-native-reanimated v2.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
