@@ -1,6 +1,6 @@
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { CommonActions } from '@react-navigation/native';
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import {
   Dimensions,
   StyleProp,
@@ -60,7 +60,6 @@ const LottieTabbar = ({
   ...rest
 }: TabbarProps) => {
   const insets = useSafeAreaInsets();
-  const selectedIndex = useSharedValue(0);
   const tabs = useMemo(
     () =>
       Object.keys(_tabs).map((name) => {
@@ -74,17 +73,20 @@ const LottieTabbar = ({
   );
   const animatedLabel = useSharedValue(
     tabs.map((_, index) => {
-      return selectedIndex.value === index ? 1 : 0;
+      return state.index === index ? 1 : 0;
     })
   );
 
-  useEffect(() => {
-    selectedIndex.value = state.index;
-    animatedLabel.value = tabs.map((_, i) => {
+  const onAnimateLabel = useCallback(() => {
+    'worklet';
+    return (animatedLabel.value = tabs.map((_, i) => {
       return i === state.index ? 1 : 0;
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
+    }));
+  }, [animatedLabel, state.index, tabs]);
+
+  useEffect(() => {
+    onAnimateLabel();
+  }, [onAnimateLabel, state]);
 
   const onPress = useStableCallback((index: number) => {
     const focused = index === state.index;
@@ -119,7 +121,6 @@ const LottieTabbar = ({
         return (
           <AnimatedTabBarItem
             key={key}
-            selectedIndex={selectedIndex}
             animatedLabel={animatedLabel}
             index={index}
             animatedOnChange={onPress}

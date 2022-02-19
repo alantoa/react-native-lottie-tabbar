@@ -61,7 +61,6 @@ export type TabBarItemStyleProps = {
 
 export type TabBarItemProps = TabItem[string] &
   TabBarItemStyleProps & {
-    selectedIndex: Animated.SharedValue<number>;
     index: number;
     animatedLabel: Animated.SharedValue<number[]>;
     animatedOnChange: (index: number) => void;
@@ -69,7 +68,6 @@ export type TabBarItemProps = TabItem[string] &
 
 export const AnimatedTabBarItem = ({
   title,
-  selectedIndex,
   index,
   animatedLabel,
   animatedOnChange,
@@ -91,7 +89,7 @@ export const AnimatedTabBarItem = ({
         duration: 300,
       }),
     };
-  }, [index, selectedIndex]);
+  });
   const labelContainerStyle = useAnimatedStyle(() => {
     return {
       opacity: withTiming(animatedLabel.value[index], { duration: 300 }),
@@ -135,6 +133,7 @@ export const AnimatedTabBarItem = ({
           <Animated.View style={labelContainerStyle}>
             <Text
               numberOfLines={1}
+              ellipsizeMode={'clip'}
               style={StyleSheet.flatten([TEXT_STYLE, textStyle])}
             >
               {title}
