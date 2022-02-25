@@ -12,9 +12,10 @@
 
 ## Installation
 
-First you have to follow installation instructions of [Reanimated v2](https://docs.swmansion.com/react-native-reanimated/) and [react-native-lottie](https://github.com/lottie-react-native/lottie-react-native).
+First you have to follow installation instructions of [react-native-reanimated v2](https://docs.swmansion.com/react-native-reanimated/) and [react-native-lottie](https://github.com/lottie-react-native/lottie-react-native).
 
-⚠️ Currently only supported `react-navigation >=5`, If you like, maybe I will support more libraries later
+⚠️ Currently only supported `react-navigation >=5`, If you like, I will support more libraries later.
+
 ```sh
 npm install react-native-lottie-tabbar
 or
@@ -52,7 +53,6 @@ const RootTab2 = () => {
 const RootTab3 = () => {
   return <View style={getViewStyle(`rgba(255, 61, 74, 1)`)} />;
 };
-
 const RootTab4 = () => {
   return <View style={getViewStyle(`rgba(255, 187, 0, 1)`)} />;
 };
@@ -87,7 +87,6 @@ const tabs: TabItem = {
 };
 
 const App = () => {
- 
   return (
     <NavigationContainer>
       <BottomTab.Navigator
