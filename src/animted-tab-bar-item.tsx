@@ -1,4 +1,3 @@
-import { palette } from '../example/src/App';
 import LottieView from 'lottie-react-native';
 import React from 'react';
 import {
@@ -17,6 +16,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import NoticeBadge from './badge';
 import type { TabItem } from '.';
+import { palette } from './theme/palette';
 import { clamp } from './utils';
 
 export const ml = (multiple = 1) => {
