@@ -14,7 +14,7 @@
 
 First you have to follow installation instructions of [react-native-reanimated v2](https://docs.swmansion.com/react-native-reanimated/) and [react-native-lottie](https://github.com/lottie-react-native/lottie-react-native).
 
-⚠️ Currently only supported `react-navigation >=5`, If you like, I will support more libraries later.
+⚠️ Currently only supported `react-navigation >=5`.
 
 ```sh
 npm install react-native-lottie-tabbar
