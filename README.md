@@ -1,5 +1,4 @@
 <div align="center">
-  <blockquote><i>`JSThread` to `JSThread`, `UIThread` to `UIThread`.</i></blockquote>
   <h1 align="center">React Native Lottie Tabbar</h1>
   <h3 align="center">A lottie animation tab bar written in react-native-reanimated v2.</h3>
 </div>
